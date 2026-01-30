@@ -7,33 +7,23 @@ import Tinder from '../assets/images/navbar/TinderforTravel.svg';
 import React from 'react';
 
 const Navbar = () => {
-  return (
-    <nav className="flex items-center justify-between px-10 py-6 bg-white w-full">
-      {/* 로고 영역 */}
-      <div className="flex-shrink-0">
-        <img src={logo} alt="logo" className="w-28 h-auto" />
-      </div>
-      
-      {/* 메뉴 리스트: gap을 제거하고 자식 요소들에게 직접 여백을 줍니다. */}
-      <div className="flex items-center">
-        {/* 각 <a> 태그에 px-5 (좌우 여백)를 추가했습니다. */}
-        <a href="urlcatcher" className="inline-block px-5 py-2 hover:opacity-70 transition-opacity">
-          <img src={URLCatcher} alt="URLCatcher" className="h-4 w-auto block object-contain" />
-        </a>
-        <a href="tinder" className="inline-block px-5 py-2 hover:opacity-70 transition-opacity">
-          <img src={Tinder} alt="Tinder" className="h-4 w-auto block object-contain" />
-        </a>
-        <a href="schedule" className="inline-block px-5 py-2 hover:opacity-70 transition-opacity">
-          <img src={schedule} alt="schedule" className="h-4 w-auto block object-contain" />
-        </a>
-        <a href="mypage" className="inline-block px-5 py-2 hover:opacity-70 transition-opacity">
-          <img src={MyPAGE} alt="MYPAGE" className="h-4 w-auto block object-contain" />
-        </a>
-        <a href="logout" className="inline-block px-5 py-2 hover:opacity-70 transition-opacity">
-          <img src={LogOut} alt="LogOut" className="h-4 w-auto block object-contain" />
-        </a>
-      </div>
-    </nav>
-  );
-};
-export default Navbar;
+    return (
+      <nav className="flex items-center justify-between px-10 py-6 bg-white">
+        {/* 로고 */}
+        <div>
+            <img src={logo} alt="logo" className="w-45 h-auto object-contain"/>
+        </div>
+        
+        {/* 메뉴 리스트 */}
+        <div className="flex items-center">
+          <a href="urlcatcher"><img src={URLCatcher} alt="URLCatcher" className="w-48 h-auto block p-8"/></a>
+          <a href="tinder"><img src={Tinder} alt="Tinder"  className="w-55 h-auto block p-8"/></a>
+          <a href="schedule"><img src={schedule} alt="schedule" className="w-40 h-auto block p-8"/></a>
+          <a href="mypage"><img src={MyPAGE} alt="MYPAGE" className="w-35 h-auto block p-8"/></a>
+          <a href="logout"><img src={LogOut} alt="LogOut" className="w-35 h-auto block p-8"/></a>
+        </div>
+      </nav>
+    );
+  };
+  
+  export default Navbar;

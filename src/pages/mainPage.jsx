@@ -17,8 +17,9 @@ const MainPage = () => {
             TRAVEL MATE
           </h1>
         </div>
+        <br></br>
         
-        <p className="text-gray-400 text-lg leading-relaxed">
+        <p className="text-gray-500 text-lg leading-relaxed">
           우리는 여행 정보를 수집(SAVE)만 하고, 실행(DO)하지 못합니다.<br />
           흩어진 데이터를 시각화해 보여주는 여행 준비 도움이,<br />
           트래블 메이트와 함께해보세요!

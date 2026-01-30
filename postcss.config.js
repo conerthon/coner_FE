@@ -1,6 +1,6 @@
 export default {
-    plugins: {
-      "@tailwindcss/postcss": {}, // 이 부분이 포인트입니다!
-      autoprefixer: {},
-    },
-  }
+  plugins: {
+    "@tailwindcss/postcss": {}, // 여기가 제일 중요합니다!
+    autoprefixer: {},
+  },
+}
