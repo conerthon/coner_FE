@@ -1,0 +1,1 @@
+//urlcapture기본 화면
