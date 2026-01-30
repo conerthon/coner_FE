@@ -1,6 +1,6 @@
 //사진이 없으면 보여주는 부분
 import React from 'react';
-const PickGroup = () => {
+const NoPicture = () => {
     return(
         <div>
 
@@ -8,4 +8,4 @@ const PickGroup = () => {
     );
 };
 
-export default PickGroup
+export default NoPicture
