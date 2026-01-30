@@ -1,8 +1,30 @@
+//기본 import
 import { useState } from 'react'
-import MainPage from './pages/mainPage';
-import Navbar from './components/navbar';
 import './App.css'
+//MainPage import
+import MainPage from './pages/mainPage';
+//basic setting import
+import Navbar from './components/navbar';
 import Bottom from './components/bottom';
+//Urlcatcher import
+import URLCatcher from './pages/URLCatcher/UrlCatcherPage';
+import deleteOption from './pages/URLCatcher/deleteOption';
+import detail from './pages/URLCatcher/detail';
+import FavoritePictureSlideBar from './pages/URLCatcher/FavoritePictureSlideBar';
+
+//tinder import
+import Tinder from './pages/Tinder/MainTinder';
+import MovingSlideCard from './pages/Tinder/MovingSlideCard';
+import ThereisNoPicture from './pages/Tinder/ThereisNoPicture';
+//Pickgroup import
+import PickGroup from './pages/PickGroup/PickGroup';
+//Schedule import
+import Survival from './pages/Schedule/Survival';
+import Schedule from './pages/Schedule/Schedule';
+import VoteInfo from './pages/Schedule/VoteInfo';
+//login&signup import
+import Login from './pages/Auth/Login';
+import Signup from './pages/Auth/Signup';
 
 function App() {
   
