@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SwipeCard from "./SwipeCard";
-
+import NoPicture from "./ThereisNoPicture";
 export default function MainTinder() {
   // 사용자 선택 사진 목록 (임시로 더미 이미지)
   const [cards, setCards] = useState([
