@@ -12,10 +12,10 @@ import MainPage from './pages/mainPage';
 import Navbar from './components/navbar';
 import Bottom from './components/bottom';
 //Urlcatcher import
-//import URLCatcher from './pages/URLCatcher/UrlCatcherPage';
-//import deleteOption from './pages/URLCatcher/deleteOption';
-//import detail from './pages/URLCatcher/detail';
-//import FavoritePictureSlideBar from './pages/URLCatcher/FavoritePictureSlideBar';
+import URLCatcher from './pages/URLCatcher/UrlCatcherPage';
+import deleteOption from './pages/URLCatcher/deleteOption';
+import detail from './pages/URLCatcher/detail';
+import FavoritePictureSlideBar from './pages/URLCatcher/FavoritePictureSlideBar';
 
 //tinder import
 import Tinder from './pages/Tinder/MainTinder';
@@ -54,6 +54,10 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
          <Route path="/signup" element={<Signup />} />
+
+         <Route path="/urlcatcher" element={<URLCatcher />} />
+         <Route path="/urlcatcher/detail" element={<detail />} />
+         
         </Routes>
       </main>
       <Bottom />
