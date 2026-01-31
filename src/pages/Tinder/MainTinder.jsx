@@ -1,5 +1,5 @@
 import React from 'react';
-const PickGroup = () => {
+const MainTinder = () => {
     return(
         <div>
 
@@ -7,4 +7,4 @@ const PickGroup = () => {
     );
 };
 
-export default PickGroup
+export default MainTinder
