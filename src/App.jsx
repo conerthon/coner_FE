@@ -9,7 +9,7 @@ import Bottom from './components/bottom';
 
 //페이지  추가
 import Login from './pages/Auth/Login';
-//import Signup from './pages/Auth/Signup';
+import Signup from './pages/Auth/Signup';
 
 function App() {
   
@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
-         { /*<Route path="/signup" element={<Signup />} />*/}
+         <Route path="/signup" element={<Signup />} />
         </Routes>
       </main>
       <Bottom />
