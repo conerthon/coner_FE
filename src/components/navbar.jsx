@@ -40,6 +40,7 @@ import MyPAGE from '../assets/images/navbar/MYPAGE.svg';
 import schedule from '../assets/images/navbar/schedule.svg';
 import groupIcon from '../assets/images/navbar/group.svg'; 
 import Tinder from '../assets/images/navbar/TinderforTravel.svg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   // 로그인 상태 관리 (테스트를 위해 false로 바꾸면 로그인 버튼이 보입니다)
@@ -66,23 +67,23 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-10 py-6 bg-white shadow-sm">
+    <nav className="flex items-center justify-between px-10 py-6 bg-white ">
       {/* 로고 */}
-      <div>
+      <Link to="/"> 
         <img src={logo} alt="logo" className="w-45 h-auto object-contain" />
-      </div>
+      </Link>
 
       {/* 메뉴 리스트 */}
       <div className="flex items-center">
-        <a href="urlcatcher">
+        <Link to="/urlcatcher">
           <img src={URLCatcher} alt="URLCatcher" className="w-48 h-auto block p-8 transition duration-300 ease-in-out hover:-translate-y-2" />
-        </a>
-        <a href="Tinder">
+        </Link>
+        <Link to="/tinder">
           <img src={Tinder} alt="Tinder" className="w-57 h-auto block p-8 transition duration-300 ease-in-out hover:-translate-y-2" />
-        </a>
-        <a href="schedule">
+        </Link>
+        <Link to="/schedule">
           <img src={schedule} alt="schedule" className="w-42 h-auto block p-8 transition duration-300 ease-in-out hover:-translate-y-2" />
-        </a>
+        </Link>
 
         {/* 그룹 메뉴 */}
         <div className="relative group" onMouseLeave={handleMouseLeave}>

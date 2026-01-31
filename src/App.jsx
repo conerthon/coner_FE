@@ -19,7 +19,7 @@ import Bottom from './components/bottom';
 
 //tinder import
 import Tinder from './pages/Tinder/MainTinder';
-//import MovingSlideCard from './pages/Tinder/MovingSlideCard';
+import MovingSlideCard from './pages/Tinder/SwipeCard';
 //import ThereisNoPicture from './pages/Tinder/ThereisNoPicture';
 //Schedule import
 //import Survival from './pages/Schedule/Survival';
@@ -33,6 +33,7 @@ import Tinder from './pages/Tinder/MainTinder';
 
 //페이지  추가
 import Login from './pages/Auth/Login';
+import SwipeCard from './pages/Tinder/SwipeCard';
 //import Signup from './pages/Auth/Signup';
 
 function App() {
@@ -52,6 +53,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
          { /*<Route path="/signup" element={<Signup />} />*/}
+          <Route path="/tinder" element={<Tinder />} />
+          <Route path="/tinder/swipe" element={<SwipeCard />} />
         </Routes>
       </main>
       <Bottom />
