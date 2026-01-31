@@ -16,8 +16,6 @@ import Bottom from './components/bottom';
 import Tinder from './pages/Tinder/MainTinder';
 //import MovingSlideCard from './pages/Tinder/MovingSlideCard';
 //import ThereisNoPicture from './pages/Tinder/ThereisNoPicture';
-//Pickgroup import
-//import PickGroup from './pages/PickGroup/PickGroup';
 //Schedule import
 //import Survival from './pages/Schedule/Survival';
 //import Schedule from './pages/Schedule/Schedule';
