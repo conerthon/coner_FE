@@ -10,7 +10,10 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("로그인 시도:", id, pw);
-    navigate('/'); // 메인으로 이동
+
+    localStorage.setItem('token', 'im-login-token'); //로그인 토큰
+
+    window.location.href = '/'; // 메인으로 이동
   };
 
   return (
