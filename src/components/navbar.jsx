@@ -31,20 +31,35 @@ const Navbar = () => {
 //  
 //  export default Navbar;
 //
-import React, { useState } from 'react';
+{/* ▼▼▼ [수정된 부분: useEffect,useNavigate 추가] ▼▼▼ */}
+import React, { useState, useEffect } from 'react';//수정
 import logo from '../assets/images/navbar/logo.svg';
 import URLCatcher from '../assets/images/navbar/URLCatcher.svg';
 import LogOut from '../assets/images/navbar/LogOut.svg';
-import Login from '../assets/images/navbar/Login.svg'; // 추가된 import
+import Login from '../assets/images/navbar/Login.svg'; 
 import MyPAGE from '../assets/images/navbar/MYPAGE.svg';
 import schedule from '../assets/images/navbar/schedule.svg';
 import groupIcon from '../assets/images/navbar/group.svg'; 
 import Tinder from '../assets/images/navbar/TinderforTravel.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';//수정
 
 const Navbar = () => {
-  // 로그인 상태 관리 (테스트를 위해 false로 바꾸면 로그인 버튼이 보입니다)
+  const navigate = useNavigate(); // 이동 도구 추가
+
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
+  useEffect(() => {  // 로그인 유지 위해 추가
+    if (localStorage.getItem('token')) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => { // 로그아웃 시 메세지 추가
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    alert("로그아웃 되었습니다.");
+    navigate('/');
+  };
 
   const [myGroups, setMyGroups] = useState([
     { id: 1, name: '덕성여대' },
@@ -131,17 +146,17 @@ const Navbar = () => {
           <img src={MyPAGE} alt="MYPAGE" className="w-35 h-auto block p-8 transition duration-300 ease-in-out hover:-translate-y-2" />
         </a>
 
-        {/* ▼▼▼ [수정된 부분: 로그인 여부에 따라 아이콘 변경] ▼▼▼ */}
+        {/* ▼▼▼ [수정된 부분: a 태그대신 button 이용 ] ▼▼▼ */}
         {isLoggedIn ? (
           // 로그인 상태일 때: 로그아웃 버튼 표시
-          <a href="logout">
+          <button onClick={handleLogout} className="focus:outline-none">
             <img src={LogOut} alt="LogOut" className="w-35 h-auto block p-8 transition duration-300 ease-in-out hover:-translate-y-2" />
-          </a>
+          </button>
         ) : (
           // 비로그인 상태일 때: 로그인 버튼 표시
-          <a href="login">
+          <Link to="/login">
             <img src={Login} alt="Login" className="w-29 h-auto block p-8 transition duration-300 ease-in-out hover:-translate-y-2" />
-          </a>
+          </Link>
         )}
         
       </div>
