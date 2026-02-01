@@ -12,10 +12,10 @@ import MainPage from './pages/mainPage';
 import Navbar from './components/navbar';
 import Bottom from './components/bottom';
 //Urlcatcher import
-//import URLCatcher from './pages/URLCatcher/UrlCatcherPage';
-//import deleteOption from './pages/URLCatcher/deleteOption';
-//import detail from './pages/URLCatcher/detail';
-//import FavoritePictureSlideBar from './pages/URLCatcher/FavoritePictureSlideBar';
+import URLCatcher from './pages/URLCatcher/UrlCatcherPage';
+import deleteOption from './pages/URLCatcher/deleteOption';
+import detail from './pages/URLCatcher/detail';
+import FavoritePictureSlideBar from './pages/URLCatcher/FavoritePictureSlideBar';
 
 //tinder import
 import Tinder from './pages/Tinder/MainTinder';
@@ -33,8 +33,11 @@ import MovingSlideCard from './pages/Tinder/SwipeCard';
 
 //페이지  추가
 import Login from './pages/Auth/Login';
+
 import SwipeCard from './pages/Tinder/SwipeCard';
-//import Signup from './pages/Auth/Signup';
+
+import Signup from './pages/Auth/Signup';
+
 
 function App() {
   
@@ -52,9 +55,17 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
+
          { /*<Route path="/signup" element={<Signup />} />*/}
           <Route path="/tinder" element={<Tinder />} />
           <Route path="/tinder/swipe" element={<SwipeCard />} />
+
+         <Route path="/signup" element={<Signup />} />
+
+         <Route path="/urlcatcher" element={<URLCatcher />} />
+         <Route path="/urlcatcher/detail" element={<detail />} />
+         
+
         </Routes>
       </main>
       <Bottom />
