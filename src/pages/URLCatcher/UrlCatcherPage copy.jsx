@@ -1,14 +1,38 @@
+//urlcapture기본 화면
 import React, { useState } from 'react';
 import FavoritePictureSlideBar from './FavoritePictureSlideBar';
 import Detail from './detail';
 import DeleteOption from './deleteOption';
 
-// App.jsx에서 cardList와 setCardList를 props로 받아옵니다.
-const UrlCatcherPage = ({ cardList, setCardList }) => {
+const UrlCatcherPage = () => {
   const [url, setUrl] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  // 기존에 있던 cardList useState는 제거했습니다. (App.jsx로 이동됨)
+  // 장소 이름(title), 태그(tags) 포함된 객체로 관리 
+  // 일단 더미데이터
+  const [cardList, setCardList] = useState([
+    {
+      id: 1,
+      title: "경주 첨성대",
+      description: "신라 시대의 천문 관측소, 밤에 보면 더 예쁘다.",
+      tags: ["#경주", "#역사", "#야경"],
+      imageUrl: "https://images.unsplash.com/photo-1499856871940-a09627c6d7db?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 2,
+      title: "베니스 운하",
+      description: "물이 흐르는 도시, 곤돌라 체험 필수.",
+      tags: ["#이탈리아", "#낭만", "#물"],
+      imageUrl: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=500&auto=format&fit=crop&q=60"
+    },
+    {
+      id: 3,
+      title: "그리스 산토리니",
+      description: "파란 지붕과 하얀 벽, 인생샷 명소.",
+      tags: ["#그리스", "#바다", "#휴양"],
+      imageUrl: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&auto=format&fit=crop&q=60"
+    },
+  ]);
 
   // 카드 정보 저장
   const [selectedItem, setSelectedItem] = useState(null); 
@@ -41,7 +65,7 @@ const UrlCatcherPage = ({ cardList, setCardList }) => {
   };
 
   const confirmDelete = () => {
-    // props로 받은 setCardList와 cardList를 사용하여 삭제 로직 수행
+    // id를 기준 삭제
     setCardList(cardList.filter(card => card.id !== selectedItem.id));
     setShowDelete(false);
     setSelectedItem(null);
@@ -79,14 +103,14 @@ const UrlCatcherPage = ({ cardList, setCardList }) => {
       {isSubmitted && (
         <div className="w-full max-w-6xl animate-fade-in-up">
           <FavoritePictureSlideBar 
-            list={cardList}  // 부모에게서 받은 리스트 전달
+            list={cardList} 
             onItemClick={handleCardClick} 
-            selectedItem={selectedItem} // 선택된 아이템 정보 전달 (블러 처리용)
+            selectedItem={selectedItem} //선택된 아이템 정보 전달, 해당카드 블러처리 위해
           />
         </div>
       )}
 
-      {/* 디테일, 삭제 창 */}
+      {/* 디테일,삭제 창 */}
       {selectedItem && (
         <Detail 
           item={selectedItem} 

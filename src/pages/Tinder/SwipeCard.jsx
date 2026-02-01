@@ -4,12 +4,14 @@ export default function SwipeCard({ image, onSwipe }) {
   const [offsetX, setOffsetX] = useState(0);       // 카드의 x축 이동값
   const [isDragging, setIsDragging] = useState(false); // 드래그 중인지 여부
   const startX = useRef(0);                        // 드래그 시작 지점
-  const threshold = 120;                          // 좌/우 판정 기준값
+  const hasSwiped = useRef(false);                 // ✅ 이미 스와이프 처리됐는지 체크
+  const threshold = 120;                           // 좌/우 판정 기준값
 
   // 마우스를 눌렀을 때 (드래그 시작)
   const handleMouseDown = (e) => {
     setIsDragging(true);
     startX.current = e.clientX;
+    hasSwiped.current = false; // 🔁 새로운 카드가 렌더될 때마다 초기화
   };
 
   // 마우스를 움직일 때 (카드 이동)
@@ -22,10 +24,14 @@ export default function SwipeCard({ image, onSwipe }) {
 
   // 마우스를 놓았을 때 (좌/우 판정)
   const handleMouseUp = () => {
+    if (!isDragging) return;          // ✅ 드래그 중일 때만 처리
+    if (hasSwiped.current) return;    // ✅ 이미 처리했으면 중복 실행 방지
+
     setIsDragging(false);
 
     // 왼쪽으로 충분히 밀었을 때 → 삭제
     if (offsetX < -threshold) {
+      hasSwiped.current = true;       // 🚫 이후 중복 실행 막기
       setOffsetX(-window.innerWidth); // 화면 밖으로 날려버리기
       setTimeout(() => onSwipe("left"), 200);
       return;
@@ -33,7 +39,8 @@ export default function SwipeCard({ image, onSwipe }) {
 
     // 오른쪽으로 충분히 밀었을 때 → 유지
     if (offsetX > threshold) {
-      setOffsetX(window.innerWidth); // 화면 밖으로 날려버리기
+      hasSwiped.current = true;       // 🚫 이후 중복 실행 막기
+      setOffsetX(window.innerWidth);  // 화면 밖으로 날려버리기
       setTimeout(() => onSwipe("right"), 200);
       return;
     }
@@ -47,7 +54,7 @@ export default function SwipeCard({ image, onSwipe }) {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+      onMouseLeave={handleMouseUp}  // ⚠️ 그래도 중복 호출 방지됨
       className="absolute w-full h-full cursor-grab active:cursor-grabbing"
       style={{
         transform: `translateX(${offsetX}px) rotate(${offsetX / 20}deg)`,
