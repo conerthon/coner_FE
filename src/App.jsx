@@ -19,10 +19,8 @@ import FavoritePictureSlideBar from './pages/URLCatcher/FavoritePictureSlideBar'
 
 //tinder import
 import Tinder from './pages/Tinder/MainTinder';
-//import MovingSlideCard from './pages/Tinder/MovingSlideCard';
+import MovingSlideCard from './pages/Tinder/SwipeCard';
 //import ThereisNoPicture from './pages/Tinder/ThereisNoPicture';
-//Pickgroup import
-//import PickGroup from './pages/PickGroup/PickGroup';
 //Schedule import
 //import Survival from './pages/Schedule/Survival';
 //import Schedule from './pages/Schedule/Schedule';
@@ -35,7 +33,11 @@ import Tinder from './pages/Tinder/MainTinder';
 
 //페이지  추가
 import Login from './pages/Auth/Login';
+
+import SwipeCard from './pages/Tinder/SwipeCard';
+
 import Signup from './pages/Auth/Signup';
+
 
 function App() {
   
@@ -53,11 +55,17 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
+
+         { /*<Route path="/signup" element={<Signup />} />*/}
+          <Route path="/tinder" element={<Tinder />} />
+          <Route path="/tinder/swipe" element={<SwipeCard />} />
+
          <Route path="/signup" element={<Signup />} />
 
          <Route path="/urlcatcher" element={<URLCatcher />} />
          <Route path="/urlcatcher/detail" element={<detail />} />
          
+
         </Routes>
       </main>
       <Bottom />
