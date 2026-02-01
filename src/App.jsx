@@ -12,6 +12,7 @@ import Signup from './pages/Auth/Signup';
 // 페이지 import
 import Tinder from './pages/Tinder/MainTinder';
 import UrlCatcherPage from './pages/URLCatcher/UrlCatcherPage'; // 경로 확인 필요
+import Schedule from './pages/Schedule/Schedule';
 
 function App() {
   // ▼▼▼ 1. 데이터를 App.jsx에서 관리 (UrlCatcherPage에 있던 것 이동) ▼▼▼
@@ -39,6 +40,10 @@ function App() {
     },
   ]);
 
+  {/* 백엔드 연결전에 빈 배열로 바꾸기
+    const [cardList, setCardList] = useState([]);
+    */}
+
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col font-sans">
@@ -62,6 +67,7 @@ function App() {
               path="/tinder" 
               element={<Tinder cardList={cardList} />} 
             />
+            <Route path="/schedule" element={<Schedule cardList={cardList} />} />
             
           </Routes>
         </main>
