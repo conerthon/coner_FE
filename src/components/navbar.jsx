@@ -87,9 +87,9 @@ const Navbar = () => {
 
         {/* 그룹 메뉴 */}
         <div className="relative group" onMouseLeave={handleMouseLeave}>
-          <a href="group" className="block">
+
             <img src={groupIcon} alt="Group" className="w-32 h-auto block p-8 transition duration-300 ease-in-out hover:-translate-y-2" />
-          </a>
+
 
           <div className="absolute left-1/2 -translate-x-1/2 top-full hidden w-48 bg-white border border-gray-200 rounded-lg shadow-xl group-hover:block z-50 overflow-hidden">
             {myGroups.length === 0 ? (
