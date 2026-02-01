@@ -7,6 +7,7 @@ import MainPage from './pages/mainPage';
 import Navbar from './components/navbar';
 import Bottom from './components/bottom';
 import Login from './pages/Auth/Login';
+import Signup from './pages/Auth/Signup';
 
 // 페이지 import
 import Tinder from './pages/Tinder/MainTinder';
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
 
             {/* ▼▼▼ 2. Props로 데이터 전달 ▼▼▼ */}
             
