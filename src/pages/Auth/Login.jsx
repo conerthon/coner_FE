@@ -6,15 +6,41 @@ export default function Login() {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  //에러 메세지 추가
+  const [error, setError] = useState(null); 
 
   const handleLogin = (e) => {
     e.preventDefault();
+
     console.log("로그인 시도:", id, pw);
 
-    localStorage.setItem('token', 'im-login-token'); //로그인 토큰
-
-    window.location.href = '/'; // 메인으로 이동
+    // id/pw확인 추가
+    if (id === "admin" && pw === "1234") {
+      // 로그인 성공 처리
+      localStorage.setItem('token', 'im-login-token'); // 로그인 토큰 저장
+      setError(null); // 에러 초기화
+      window.location.href = '/'; // 메인으로 이동
+    } else {
+      // 로그인 실패 처리
+      setError("아이디 또는 비밀번호가 올바르지 않습니다."); 
+    }
   };
+
+
+  // admin / 1234 만 로그인 가능하게 수정
+  const fakeLoginApi = (user, pass) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (user === "admin" && pass === "1234") {
+          resolve({ success: true });
+        } else {
+          resolve({ success: false });
+        }
+      }, 500);
+    });
+  };
+
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4">
@@ -67,6 +93,14 @@ export default function Login() {
             로 그 인
           </button>
         </div>
+
+        {/* 하단에 에러 메시지 표시 */}
+        {error && (
+         <div className="text-center text-red-600 font-bold mt-4">
+           {error}
+         </div>
+        )}
+
 
         {/* 회원가입 링크 */}
         <div className="text-center text-xs text-gray-400 mt-6">
