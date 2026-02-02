@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import SwipeCard from "./SwipeCard";
+import axios from "axios";
 
 export default function MainTinder({ cardList }) {
   // 1. 현재 보여줄 카드 목록 (이미지 주소들)
