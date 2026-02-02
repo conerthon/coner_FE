@@ -14,6 +14,7 @@ import Tinder from './pages/Tinder/MainTinder';
 import UrlCatcherPage from './pages/URLCatcher/UrlCatcherPage'; // 경로 확인 필요
 import Schedule from './pages/Schedule/Schedule';
 
+//결과값 산출 위한 더미데이터 추가
 function App() {
   // ▼▼▼ 1. 데이터를 App.jsx에서 관리 (UrlCatcherPage에 있던 것 이동) ▼▼▼
   const [cardList, setCardList] = useState([
@@ -22,21 +23,30 @@ function App() {
       title: "경주 첨성대",
       description: "신라 시대의 천문 관측소, 밤에 보면 더 예쁘다.",
       tags: ["#경주", "#역사", "#야경"],
-      imageUrl: "https://images.unsplash.com/photo-1499856871940-a09627c6d7db?w=500&auto=format&fit=crop&q=60"
+      imageUrl: "https://images.unsplash.com/photo-1499856871940-a09627c6d7db?w=500&auto=format&fit=crop&q=60",
+      selectors: 2,  
+      users: [1, 2]   
+
     },
     {
       id: 2,
       title: "베니스 운하",
       description: "물이 흐르는 도시, 곤돌라 체험 필수.",
       tags: ["#이탈리아", "#낭만", "#물"],
-      imageUrl: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=500&auto=format&fit=crop&q=60"
+      imageUrl: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=500&auto=format&fit=crop&q=60",
+      selectors: 1,
+      users: [2]
+
     },
     {
       id: 3,
       title: "그리스 산토리니",
       description: "파란 지붕과 하얀 벽, 인생샷 명소.",
       tags: ["#그리스", "#바다", "#휴양"],
-      imageUrl: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&auto=format&fit=crop&q=60"
+      imageUrl: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&auto=format&fit=crop&q=60",
+      selectors: 0,
+      users: []
+
     },
   ]);
 
