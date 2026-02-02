@@ -1,6 +1,6 @@
 import React from 'react';
 import airplane from '../assets/images/airplane.png';
-
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
   return (
@@ -25,11 +25,11 @@ const MainPage = () => {
           트래블 메이트와 함께해보세요!
         </p>
 
-        <a href="urlcapture">
+        <Link to="/urlcatcher">
           <button className="flex items-center bg-[#486284] hover:bg-[#3b4d64] text-white px-8 py-3 rounded-full font-medium transition-all shadow-md">
             → 바로가기
           </button>
-        </a>
+        </Link>
       </div>
 
       {/* 오른쪽 이미지 영역 (둥근 모서리가 핵심) */}
